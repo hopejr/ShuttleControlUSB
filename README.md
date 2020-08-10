@@ -1,6 +1,6 @@
 # ShuttleControlUSB
 
-_A Library to use Contour Design ShuttleXpress and ShuttlePro v2 in Node.js projects without the driver. Works on Linux too!_
+_A Library to use Contour Design ShuttleXpress and ShuttlePro v2 in Node.js projects without the driver._
 
 ## Installation
 ```sh
@@ -15,7 +15,7 @@ shuttle.on('connected', (deviceInfo) => {
   console.log('Connected to ' + deviceInfo.name);
 });
 
-// Start after 'connect' event listener have been set up
+// Start after 'connect' event listener has been set up
 shuttle.start();
 ```
 
@@ -34,7 +34,7 @@ This should be called after the 'connect' event listener has been declared, othe
 Stops the service and monitoring. This must be called before your script ends.
 
 ### Events
-shuttle.on('...', () => {})
+`shuttle.on('...', () => {})`
 
 #### Event: `connected`
 Emitted when a device has been plugged into a USB port.
@@ -59,7 +59,8 @@ Returns:
 Emitted when shuttle data is available from the device.
 
 Returns:
-- `value` Integer - Range from -7 to 7 for ShuttleXpress and ShuttlePro v2
+- `old` Integer
+- `new` Integer
 
 #### Event: `jog`
 Emitted when jog data is available from the device.
