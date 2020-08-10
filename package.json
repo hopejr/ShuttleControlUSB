@@ -1,0 +1,26 @@
+{
+  "name": "shuttle-control-usb",
+  "version": "1.0.0",
+  "description": "NodeJS Interface for Contour ShuttleXpress and ShuttlePro V2",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hopejr/ShuttleControlUSB.git"
+  },
+  "author": "James Hope",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hopejr/ShuttleControlUSB/issues"
+  },
+  "homepage": "https://github.com/hopejr/ShuttleControlUSB",
+  "dependencies": {
+    "node-hid": "^1.3.0",
+    "usb-detection": "^4.10.0"
+  },
+  "devDependencies": {
+    "tape": "^5.0.1"
+  }
+}
