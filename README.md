@@ -4,7 +4,7 @@ _A Library to use Contour Design ShuttleXpress and ShuttlePro v2 in Node.js proj
 
 ## Installation
 ```sh
-npm install --save shuttle-control-usb
+npm install --save https://github.com/hopejr/ShuttleControlUSB.git
 ```
 
 ## Usage
