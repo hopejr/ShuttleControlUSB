@@ -1,6 +1,6 @@
 {
   "name": "shuttle-control-usb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "NodeJS Interface for Contour ShuttleXpress and ShuttlePro V2",
   "main": "index.js",
   "scripts": {
