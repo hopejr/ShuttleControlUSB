@@ -16,6 +16,13 @@
     "url": "https://github.com/hopejr/ShuttleControlUSB/issues"
   },
   "homepage": "https://github.com/hopejr/ShuttleControlUSB",
+  "keywords": [
+    "shuttlexpress",
+    "shuttlepro",
+    "usb",
+    "shuttle",
+    "jog"
+  ],
   "dependencies": {
     "node-hid": "^1.3.0",
     "usb-detection": "^4.10.0"
