@@ -87,6 +87,14 @@ Returns:
 - `button` Integer - the button number
 
 
+## Linux Note
+By default, the udev system adds ShuttleXpress and ShuttlePro V2 as root only access. To fix this, you need to copy 99-Shuttle.rules to:
+```
+/etc/udev/rules.d
+```
+Then reboot your computer.
+
+
 ## Licence
 MIT
 
