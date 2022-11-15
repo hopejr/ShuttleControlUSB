@@ -14,6 +14,8 @@ shuttle.on('connected', (deviceInfo) => {
     t.equal(deviceInfo.hasJog, true)
     if (deviceInfo.name === 'ShuttleXpress') {
       t.equal(deviceInfo.numButtons, 5)
+    } else if (deviceInfo.name === 'ShuttlePro v1') {
+      t.equal(deviceInfo.numButtons === 13)
     } else if (deviceInfo.name === 'ShuttlePro v2') {
       t.equal(deviceInfo.numButtons === 15)
     }
