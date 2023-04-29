@@ -95,6 +95,10 @@ By default, the udev system adds ShuttleXpress, ShuttlePro V1, and ShuttlePro V2
 Then reboot your computer.
 
 
+# Future Features
+I'm looking at allowing multiple devices to be connected at once. Stay tuned for this feature. It will likely result in a change to the API and will be a breaking change.
+
+
 ## Licence
 MIT
 

@@ -1,10 +1,6 @@
 const test = require('tape')
 const shuttle = require('../lib/Shuttle')
 
-shuttle.start()
-
-console.log('Plug device in')
-
 shuttle.on('connected', (deviceInfo) => {
   console.log('Starting tests')
   test('shuttle test', (t) => {
@@ -22,3 +18,7 @@ shuttle.on('connected', (deviceInfo) => {
     shuttle.stop()
   })
 })
+
+shuttle.start()
+
+console.log('Plug device in')

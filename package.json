@@ -1,6 +1,6 @@
 {
   "name": "shuttle-control-usb",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "NodeJS Interface for Contour ShuttleXpress, ShuttlePro V1, and ShuttlePro V2",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "node-hid": "^2.1.2",
-    "usb-detection": "github:MadLittleMods/node-usb-detection"
+    "usb": "^2.9.0"
   },
   "devDependencies": {
     "tape": "^5.6.1"
