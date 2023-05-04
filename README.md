@@ -2,7 +2,7 @@
 
 A Library to use Contour Design ShuttleXpress and ShuttlePro (v1 and v2) in Node.js projects without the driver. In some markets, these devices are also known as Multimedia Controller Xpress and Multimedia Controller PRO v2.
 
-_This library now supports multiple devices connected at one time (since v1.1.0). This change is backwards compatible and simply includes the device connection UUID for each event as the final parameter in the callback._
+_This library now supports multiple devices connected at one time (since v1.1.0). This change is backwards compatible and simply includes a hash of the device id for each event as the final parameter in the callback._
 
 ## Installation
 ```sh
@@ -34,6 +34,29 @@ This should be called after the 'connect' event listener has been declared, othe
 `stop()`
 
 Stops the service and monitoring. This must be called before your script ends.
+
+
+`getDeviceList()`
+Use to retrieve all the devices that are connected.
+
+Returns:
+- `deviceList` Array - contains the following information:
+  - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
+  - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
+  - `hasShuttle` Boolean
+  - `hasJog` Boolean
+  - `numButtons` Integer
+
+
+`getRawHidDevice(id)`
+Use to retrieve the raw HID device object for the device identified by id.
+
+Parameters:
+- `id` String
+
+Returns:
+- `hid` Object - the raw HID device object
+
 
 ### Events
 `shuttle.on('...', () => {})`
