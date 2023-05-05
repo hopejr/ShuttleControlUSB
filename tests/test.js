@@ -3,9 +3,9 @@ const shuttle = require('../lib/Shuttle')
 
 shuttle.on('connected', (deviceInfo) => {
   console.log('Starting tests')
-  console.log('Connected', deviceInfo.id, deviceInfo.name)
+  console.log('Connected', deviceInfo.id, deviceInfo.path, deviceInfo.name)
   test('shuttle test', (t) => {
-    t.plan(3)
+    t.plan(7)
 
     t.equal(deviceInfo.hasShuttle, true)
     t.equal(deviceInfo.hasJog, true)
@@ -16,6 +16,10 @@ shuttle.on('connected', (deviceInfo) => {
     } else if (deviceInfo.name === 'ShuttlePro v2') {
       t.equal(deviceInfo.numButtons, 15)
     }
+    t.deepEqual(shuttle.getDeviceById(deviceInfo.id), deviceInfo)
+    t.notDeepEqual(shuttle.getDeviceById("foo"), deviceInfo)
+    t.deepEqual(shuttle.getDeviceByPath(deviceInfo.path), deviceInfo)
+    t.notDeepEqual(shuttle.getDeviceByPath("/foo/bar"), deviceInfo)
     console.log('Unplug device')
   })
 })
