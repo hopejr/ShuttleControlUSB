@@ -5,7 +5,7 @@ shuttle.on('connected', (deviceInfo) => {
   console.log('Starting tests')
   console.log('Connected', deviceInfo.id, deviceInfo.path, deviceInfo.name)
   test('shuttle test', (t) => {
-    t.plan(7)
+    t.plan(9)
 
     t.equal(deviceInfo.hasShuttle, true)
     t.equal(deviceInfo.hasJog, true)
@@ -17,9 +17,12 @@ shuttle.on('connected', (deviceInfo) => {
       t.equal(deviceInfo.numButtons, 15)
     }
     t.deepEqual(shuttle.getDeviceById(deviceInfo.id), deviceInfo)
-    t.notDeepEqual(shuttle.getDeviceById("foo"), deviceInfo)
+    t.equal(shuttle.getDeviceById("foo"), null)
     t.deepEqual(shuttle.getDeviceByPath(deviceInfo.path), deviceInfo)
-    t.notDeepEqual(shuttle.getDeviceByPath("/foo/bar"), deviceInfo)
+    t.equal(shuttle.getDeviceByPath("/foo/bar"), null)
+    // TODO(Peter): Check the presence of some fields here?
+    t.notLooseEqual(shuttle.getRawHidDevice(deviceInfo.id), null)
+    t.equal(shuttle.getRawHidDevice("foo"), null)
     console.log('Unplug device')
   })
 })
