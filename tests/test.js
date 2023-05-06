@@ -5,7 +5,7 @@ shuttle.on('connected', (deviceInfo) => {
   console.log('Starting tests')
   console.log('Connected', deviceInfo.id, deviceInfo.path, deviceInfo.name)
   test('shuttle test', (t) => {
-    t.plan(9)
+    t.plan(11)
 
     t.equal(deviceInfo.hasShuttle, true)
     t.equal(deviceInfo.hasJog, true)
@@ -20,8 +20,10 @@ shuttle.on('connected', (deviceInfo) => {
     t.equal(shuttle.getDeviceById("foo"), null)
     t.deepEqual(shuttle.getDeviceByPath(deviceInfo.path), deviceInfo)
     t.equal(shuttle.getDeviceByPath("/foo/bar"), null)
-    // TODO(Peter): Check the presence of some fields here?
     t.notLooseEqual(shuttle.getRawHidDevice(deviceInfo.id), null)
+    // Validate we've got the right raw HID device
+    t.match(shuttle.getRawHidDevice(deviceInfo.id).getDeviceInfo().manufacturer, /Contour/i)
+    t.match(shuttle.getRawHidDevice(deviceInfo.id).getDeviceInfo().product, /Shuttle/i)
     t.equal(shuttle.getRawHidDevice("foo"), null)
     console.log('Unplug device')
   })
