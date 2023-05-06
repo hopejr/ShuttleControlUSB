@@ -37,6 +37,7 @@ Stops the service and monitoring. This must be called before your script ends.
 
 
 `getDeviceList()`
+
 Use to retrieve all the devices that are connected.
 
 Returns:
@@ -49,6 +50,7 @@ Returns:
 
 
 `getRawHidDevice(id)`
+
 Use to retrieve the raw HID device object for the device identified by id.
 
 Parameters:
