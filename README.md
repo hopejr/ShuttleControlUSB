@@ -43,6 +43,7 @@ Use to retrieve all the devices that are connected.
 Returns:
 - `Object[]` - contains the following information:
   - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
+  - `path` String - the USB device path
   - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
   - `hasShuttle` Boolean
   - `hasJog` Boolean
@@ -55,6 +56,7 @@ Returns:
 
 Returns `Object | null`:
   - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
+  - `path` String - the USB device path
   - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
   - `hasShuttle` Boolean
   - `hasJog` Boolean
