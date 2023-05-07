@@ -1,4 +1,4 @@
-# ShuttleControlUSB [![npm](https://img.shields.io/npm/v/shuttle-control-usb.svg)](https://www.npmjs.com/package/shuttle-control-usb)
+# ShuttleControlUSB [![npm](https://img.shields.io/npm/v/shuttle-control-usb.svg)](https://www.npmjs.com/package/shuttle-control-usb) [![Licence MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
 A Library to use Contour Design ShuttleXpress and ShuttlePro (v1 and v2) in Node.js projects without the driver. In some markets, these devices are also known as Multimedia Controller Xpress and Multimedia Controller PRO v2.
 
@@ -41,7 +41,31 @@ Stops the service and monitoring. This must be called before your script ends.
 Use to retrieve all the devices that are connected.
 
 Returns:
-- `deviceList` Array - contains the following information:
+- `Object[]` - contains the following information:
+  - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
+  - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
+  - `hasShuttle` Boolean
+  - `hasJog` Boolean
+  - `numButtons` Integer
+
+
+`getDeviceById(id)`
+
+- `id` String - the device id
+
+Returns `Object | null`:
+  - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
+  - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
+  - `hasShuttle` Boolean
+  - `hasJog` Boolean
+  - `numButtons` Integer
+
+
+`getDeviceByPath(path)`
+
+- `path` String - the device path
+
+Returns `Object | null`:
   - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
   - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
   - `hasShuttle` Boolean
@@ -51,13 +75,9 @@ Returns:
 
 `getRawHidDevice(id)`
 
-Use to retrieve the raw HID device object for the device identified by id.
+- `id` String - the device id
 
-Parameters:
-- `id` String
-
-Returns:
-- `hid` Object - the raw HID device object
+Returns `Object | null` - the raw HID device object
 
 
 ### Events
@@ -66,8 +86,7 @@ Returns:
 #### Event: `connected`
 Emitted when a device has been plugged into a USB port.
 
-Returns:
-- `deviceInfo` Object
+Returns `Object`:
   - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
   - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
   - `hasShuttle` Boolean
@@ -77,8 +96,7 @@ Returns:
 #### Event: `disconnected`
 Emitted when the device has been unplugged or has failed.
 
-Returns:
-- `id` String - either an MD5 hash of the serial number (if it exists) or the device path.
+Returns `id` String - either an MD5 hash of the serial number (if it exists) or the device path.
 
 #### Event: `shuttle`
 Emitted when shuttle data is available from the device.
@@ -123,6 +141,21 @@ Returns:
 - `button` Integer - the button number
 - `id` String - either an MD5 hash of the serial number (if it exists) or the device path.
 
+
+### Enumerations
+
+`shuttle.vids`
+
+An enumeration of vendor ids for shuttle devices, namely for Contour Design:
+- `CONTOUR`
+
+
+`shuttle.pids`
+
+An enumeration of product ids for shuttle devices:
+- `SHUTTLEXPRESS`
+- `SHUTTLEPRO_V1`
+- `SHUTTLEPRO_V2`
 
 ## Linux Note
 By default, the udev system adds ShuttleXpress, ShuttlePro V1, and ShuttlePro V2 as root only access. To fix this, you need to copy 99-Shuttle.rules to:
