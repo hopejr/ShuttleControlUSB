@@ -24,11 +24,20 @@ shuttle.start();
 ## API
 
 ### Methods
-`start()`
+`start(watchUsb)`
 
-Starts the service and monitors USB device connections for ShuttleXPress or ShuttlePro (v1 and v2). It will find all connected devices.
+- `watchUsb` Boolean - whether to monitor for USB devices (true by default)
+
+Starts the service and optionally monitors USB device connections for ShuttleXPress or ShuttlePro (v1 and v2). If watchUsb is true, it will find all connected devices.
 
 This should be called after the 'connect' event listener has been declared, otherwise already-connected devices will not be detected.
+
+
+`connect(path)`
+
+- `path` String - the device path
+
+If you're not automatically monitoring for USB devices, use this to connect to a specific device by path.
 
 
 `stop()`
@@ -69,6 +78,7 @@ Returns `Object | null`:
 
 Returns `Object | null`:
   - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
+  - `path` String - the USB device path
   - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
   - `hasShuttle` Boolean
   - `hasJog` Boolean
