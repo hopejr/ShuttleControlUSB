@@ -51,7 +51,7 @@ Use to retrieve all the devices that are connected.
 
 Returns:
 - `Object[]` - contains the following information:
-  - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
+  - `id` String - either the serial number (if it exists) or the device path, turned into an MD5 hash, used to distinguish between multiple devices that may be connected at once.
   - `path` String - the USB device path
   - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
   - `hasShuttle` Boolean
@@ -64,7 +64,7 @@ Returns:
 - `id` String - the device id
 
 Returns `Object | null`:
-  - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
+  - `id` String - either the serial number (if it exists) or the device path, turned into an MD5 hash, used to distinguish between multiple devices that may be connected at once.
   - `path` String - the USB device path
   - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
   - `hasShuttle` Boolean
@@ -77,8 +77,7 @@ Returns `Object | null`:
 - `path` String - the device path
 
 Returns `Object | null`:
-  - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
-  - `path` String - the USB device path
+  - `id` String - either the serial number (if it exists) or the device path, turned into an MD5 hash, used to distinguish between multiple devices that may be connected at once.
   - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
   - `hasShuttle` Boolean
   - `hasJog` Boolean
@@ -99,7 +98,7 @@ Returns `Object | null` - the raw HID device object
 Emitted when a device has been plugged into a USB port.
 
 Returns `Object`:
-  - `id` String - either an MD5 hash of the serial number (if it exists) or the device path, used to distinguish between multiple devices that may be connected at once.
+  - `id` String - either the serial number (if it exists) or the device path, turned into an MD5 hash, used to distinguish between multiple devices that may be connected at once.
   - `name` String - name of the device ('ShuttleXpress', 'ShuttlePro v1', or 'ShuttlePro v2')
   - `hasShuttle` Boolean
   - `hasJog` Boolean
@@ -108,14 +107,14 @@ Returns `Object`:
 #### Event: `disconnected`
 Emitted when the device has been unplugged or has failed.
 
-Returns `id` String - either an MD5 hash of the serial number (if it exists) or the device path.
+Returns `id` String - either the serial number (if it exists) or the device path, turned into an MD5 hash.
 
 #### Event: `shuttle`
 Emitted when shuttle data is available from the device.
 
 Returns:
 - `value` Integer - Range from -7 to 7 for ShuttleXpress and ShuttlePro (v1 and v2)
-- `id` String - either an MD5 hash of the serial number (if it exists) or the device path.
+- `id` String - either the serial number (if it exists) or the device path, turned into an MD5 hash.
 
 #### Event: `shuttle-trans`
 Emitted when shuttle data is available from the device.
@@ -123,48 +122,48 @@ Emitted when shuttle data is available from the device.
 Returns:
 - `old` Integer
 - `new` Integer
-- `id` String - either an MD5 hash of the serial number (if it exists) or the device path.
+- `id` String - either the serial number (if it exists) or the device path, turned into an MD5 hash.
 
 #### Event: `jog`
 Emitted when jog data is available from the device.
 
 Returns:
 - `value` Integer - Range from 0 to 255 for ShuttleXpress and ShuttlePro (v1 and v2)
-- `id` String - either an MD5 hash of the serial number (if it exists) or the device path.
+- `id` String - either the serial number (if it exists) or the device path, turned into an MD5 hash.
 
 #### Event: `jog-dir`
 Emitted when jog data is available from the device.
 
 Returns:
 - `dir` Integer - Either 1 (clockwise) or -1 (counter-clockwise)
-- `id` String - either an MD5 hash of the serial number (if it exists) or the device path.
+- `id` String - either the serial number (if it exists) or the device path, turned into an MD5 hash.
 
 #### Event: `buttondown`
 Emitted when a button is pressed on the device.
 
 Returns:
 - `button` Integer - the button number
-- `id` String - either an MD5 hash of the serial number (if it exists) or the device path.
+- `id` String - either the serial number (if it exists) or the device path, turned into an MD5 hash.
 
 #### Event: `buttonup`
 Emitted when a button is released on the device.
 
 Returns:
 - `button` Integer - the button number
-- `id` String - either an MD5 hash of the serial number (if it exists) or the device path.
+- `id` String - either the serial number (if it exists) or the device path, turned into an MD5 hash.
 
 
 ### Enumerations
 
 `shuttle.vids`
 
-An enumeration of vendor ids for shuttle devices, namely for Contour Design:
+An enumeration of vendor ids for Shuttle devices, namely for Contour Design:
 - `CONTOUR`
 
 
 `shuttle.pids`
 
-An enumeration of product ids for shuttle devices:
+An enumeration of product ids for Shuttle devices:
 - `SHUTTLEXPRESS`
 - `SHUTTLEPRO_V1`
 - `SHUTTLEPRO_V2`
