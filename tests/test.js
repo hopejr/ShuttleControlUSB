@@ -41,6 +41,10 @@ shuttle.on('buttonup', (button, id) => {
   console.log('Shuttle button up', button, id)
 })
 
+shuttle.on('buttondown', (button, id) => {
+  console.log('Shuttle button down', button, id)
+})
+
 shuttle.start()
 
 if (shuttle.getDeviceList().length === 0) {
