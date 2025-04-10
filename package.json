@@ -1,6 +1,6 @@
 {
   "name": "shuttle-control-usb",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "NodeJS Interface for Contour ShuttleXpress, ShuttlePro V1, and ShuttlePro V2",
   "main": "index.js",
   "scripts": {
@@ -24,10 +24,10 @@
     "jog"
   ],
   "dependencies": {
-    "node-hid": "^3.1.0",
-    "usb": "^2.9.0"
+    "node-hid": "^3.1.2",
+    "usb": "^2.15.0"
   },
   "devDependencies": {
-    "tape": "^5.6.1"
+    "tape": "^5.9.0"
   }
 }
